@@ -1,4 +1,8 @@
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -11,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-public class DemoJList extends JFrame {
+public class DemoJList extends JFrame implements ActionListener, ItemListener {
 	private JButton btnExit;
 	private JButton btnToDenSoChan;
 	private JButton btnToDenSoLe;
@@ -82,7 +86,8 @@ public class DemoJList extends JFrame {
 		
 			// create panel center of right panel
 		JPanel pnlRightCenter = new JPanel();
-		lstListNumber = new JList();
+		String listNumber[] = {"1", "2"};
+		lstListNumber = new JList(listNumber);
 		lstListNumber.setVisibleRowCount(20);
 		JScrollPane scrListNumber = new JScrollPane(lstListNumber);
 		pnlRightCenter.add(scrListNumber);
@@ -104,13 +109,23 @@ public class DemoJList extends JFrame {
 		add(pnlLeft, BorderLayout.WEST);
 		add(pnlRight, BorderLayout.CENTER);
 		
-		
-		
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		new DemoJList().setVisible(true);
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
